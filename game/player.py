@@ -5,4 +5,5 @@ class Player():
         self.cards = cards
         self.total_Amount_bet = total_Amount_bet
         self.amount= amount
+#human vs pc        
 
