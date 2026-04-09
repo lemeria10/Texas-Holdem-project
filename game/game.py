@@ -13,6 +13,21 @@ class Game():
         self.pc = Player(type="pc", cards=pc_cards,total_Amount_bet=0, name="Nick", amount=2000)
 
         self.deck = deck
+        self._turn=self.human
+    @property
+    def turn(self):
+        return self._turn
+    @turn.setter
+    def turn(self, player):
+
+        if isinstance(player, Player):
+            self._turn = player
+
+        else:
+            raise ValueError("Turn must be set to a Player instance")   
+   
+
+        
 
 if __name__ == "__main__":
     game=Game()
