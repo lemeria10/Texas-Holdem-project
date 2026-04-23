@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-py"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Player {
+  id Int @id @default(autoincrement())
+  email String @unique
+  name String?
+  created_at DateTime @default(now())
+  player_password PlayerPassword?
+}
+
+model PlayerPassword {
+  id Int @id @default(autoincrement())
+  player_id Int @unique
+  password String
+  player Player @relation(fields: [player_id], references: [id])
+}
